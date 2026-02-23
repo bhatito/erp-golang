@@ -7,6 +7,8 @@ import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import { getAccessToken } from "./auth/token.js";
+import Register from "./pages/Register.jsx";
+
 
 function ProtectedRoute({ children }) {
   return getAccessToken() ? children : <Navigate to="/login" replace />;
@@ -19,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}>
           <Route index element={<Navigate to="/login" replace />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route
             path="dashboard"
             element={

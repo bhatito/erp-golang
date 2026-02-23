@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { api } from "../api/client";
 import { setAccessToken } from "../auth/token";
@@ -148,11 +148,15 @@ export default function Login() {
                 {loading ? "Signing in..." : "Sign in"}
               </Button>
 
+              {/* ✅ ini yang bikin "register bisa" */}
               <div className="mt-2 text-center text-sm text-slate-600">
                 Belum punya akun?{" "}
-                <span className="font-semibold text-slate-900">
-                  Register via API dulu
-                </span>
+                <Link
+                  to="/register"
+                  className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900"
+                >
+                  Register
+                </Link>
               </div>
             </form>
 
